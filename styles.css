@@ -1,0 +1,25 @@
+/* Globals */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Frontend Mentor Attribution */
+
+.attribution {
+  font-size: 11px; 
+  text-align: center; 
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%); 
+}
