@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -10,26 +10,54 @@
   <link rel="stylesheet" href="./styles.css">
   <title>Frontend Mentor | Todo app</title>
 </head>
-<body>
-
-  <h1>Todo</h1>
-  <button>Dark/Light Placeholder</button>
-
-  <p><!-- Add dynamic number -->0 items left</p>
-
-  <p>Clear Completed</p>
-
-  <ul>
-    <li>All</li>
-    <li>Active</li>
-    <li>Completed</li>
-  </ul>
-
-  <p>Drag and drop to reorder list</p>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/Patrick-Dolan" target="_blank">Patrick Dolan</a>.
+<body class="container">
+  <div class="row main-title">
+    <h2>Todo</h2>
+    <button class="theme-switcher">
+      <img src="./images/icon-moon.svg" alt="Moon icon button to switch to dark mode.">
+    </button>
   </div>
+
+  <div>
+    <form class="todo-create-form row">
+      <input class="todo-create-form--text-input" type="text" placeholder="Create a new todo...">
+    </form>
+  </div>
+
+  <div class="visual-container">
+    <div class="row todo-item">
+      <p>Complete online JavaScript course</p>
+      <img src="./images/icon-cross.svg" alt="" class="close-icon">
+    </div>
+    <div class="row todo-item">
+      <p>Jog around the park 3x</p>
+      <img src="./images/icon-cross.svg" alt="" class="close-icon">
+    </div>
+    <div class="row todo-item">
+      <p>10 minutes meditation</p>
+      <img src="./images/icon-cross.svg" alt="" class="close-icon">
+    </div>
+    <div class="row">
+      <p class="text-subtle"><!-- TODO Add dynamic number -->0 items left</p>
+      <p class="text-subtle">Clear Completed</p>
+    </div>
+  </div>
+
+  <div class="visual-container">
+    <ul class="item-filter-list">
+      <li class=" item-filter-list-item item-filter-active">All</li>
+      <li class="item-filter-list-item">Active</li>
+      <li class="item-filter-list-item">Completed</li>
+    </ul>
+  </div>
+
+  <p class="drag-drop-instruction">Drag and drop to reorder list</p>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/Patrick-Dolan" target="_blank">Patrick Dolan</a>.
+    </p>
+  </footer>
 </body>
 </html>

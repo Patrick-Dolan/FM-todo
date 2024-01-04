@@ -1,5 +1,25 @@
 /* Globals */
 
+:root {
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-background: hsl(192, 100%, 67%);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+
+  --light-theme-very-light-gray: hsl(0, 0%, 98%);
+  --light-theme-very-light-grayish-blue: hsl(236, 33%, 92%);
+  --light-theme-light-grayish-blue: hsl(233, 11%, 84%);
+  --light-theme-dark-grayish-blue: hsl(236, 9%, 61%);
+  --light-theme-very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+  --dark-theme-very-dark-blue: hsl(235, 21%, 11%);
+  --dark-theme-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --dark-theme-light-grayish-blue: hsl(234, 39%, 85%);
+  --dark-theme-light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-theme-dark-grayish-blue: hsl(234, 11%, 52%);
+  --dark-theme-very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --dark-theme-very-dark-grayish-blue-hover: hsl(237, 14%, 26%);
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -11,10 +31,161 @@ img {
 body {
   font-size: 18px;
   font-family: 'Josefin Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("./images/bg-mobile-light.jpg");
+  background-repeat: no-repeat;
+  background-color: var(--light-theme-very-light-gray);
+}
+
+p {
+  font-size: 1rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: .5rem;
+  color: var(--light-theme-very-light-gray);
+}
+
+/* Layout */
+
+.container {
+  margin: 0 auto;
+  max-width: 85%;
+  flex: 1 0 auto;
+}
+
+.visual-container {
+  margin-bottom: 1em;
+  background-color: var(--light-theme-very-light-gray);
+  box-shadow: 0 0 4rem var(--shadow-color);
+  border-radius: .25rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.text-subtle {
+  color: var(--light-theme-dark-grayish-blue);
+  font-size: .9rem;
+}
+
+/* Icons */
+
+.close-icon {
+  padding: .5rem;
+  border-radius: 50%;
+}
+
+/* Main title */
+
+.main-title {
+  margin: 1.75rem 0 .75rem 0;
+}
+
+.theme-switcher {
+  all: unset;
+  padding: .5rem;
+}
+
+.theme-switcher:hover,
+.theme-switcher:focus-visible {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.theme-switcher:focus-visible {
+  outline: 2px solid var(--bright-blue);
+  background-color: var(--bright-blue);
+} 
+
+/* Todo create form */
+
+.todo-create-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-theme-very-light-gray);
+  padding: .25rem;
+  border-radius: .25rem;
+  margin-bottom: 1em;
+}
+
+.todo-create-form--text-input {
+  border: none;
+  background-color: transparent;
+  font-size: .85rem;
+  font-weight: 700;
+  width: 100%;
+  padding: .1rem;
+  line-height: 2rem;
+}
+
+.todo-create-form--checkbox-input {
+  padding: .5rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.todo-create-form input::placeholder {
+  color: var(--light-theme-dark-grayish-blue);
+}
+
+input[type="checkbox"] {
+  border-radius: 50%;
+}
+
+/* Todo Items */
+
+.todo-item {
+  border-bottom: 1px solid var(--light-theme-very-light-grayish-blue);
+}
+
+/* Item Filter List */
+
+.item-filter-list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.item-filter-list-item {
+  padding: 0 .5rem;
+  color: var(--light-theme-dark-grayish-blue);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.item-filter-active {
+  color: var(--bright-blue);
+}
+
+/* Drag and drop text */
+
+.drag-drop-instruction {
+  text-align: center;
+  margin-top: 1.5em;
+  color: var(--light-theme-dark-grayish-blue);
+  font-size: .9rem;
 }
 
 /* Frontend Mentor Attribution */
 
+footer {
+  margin-top: auto;
+}
 .attribution {
   font-size: 11px; 
   text-align: center; 
