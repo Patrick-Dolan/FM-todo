@@ -15,6 +15,10 @@ class TodoList {
     this.tasks = this.tasks.filter(todo => todo.id !== id);
   }
 
+  clearCompletedTasks() {
+    this.tasks = this.tasks.filter(todo => !todo.completed);
+  }
+
   getRemainingTaskCount() {
     return this.tasks.filter(todo => !todo.completed).length;
   }
@@ -44,7 +48,6 @@ function seedTodoList(todoList) {
   todoList.addTask("Read for 1 hour");
   todoList.addTask("Pick up groceries");
   todoList.addTask("Complete Todo App on Frontend Mentor");
-  console.log(todoList);
   renderTodoList(todoList);
 }
 
@@ -57,6 +60,11 @@ function handleTodoCreateForm(e, todoList) {
   }
   todoList.addTask(taskText);
   document.getElementById("task-string").value = "";
+  renderTodoList(todoList);
+}
+
+function handleClearAllTasks(todoList) {
+  todoList.clearCompletedTasks();
   renderTodoList(todoList);
 }
 
@@ -123,81 +131,92 @@ function initializeTheme() {
   }
 }
 
+function createTaskListItemElement(task, todoList) {
+  // Create the li element
+  let li = document.createElement("li");
+  li.className = "row todo-item";
+
+  // Create the label element
+  let label = document.createElement("label");
+  label.className = "row padding-0";
+
+  // Create the checkbox input element
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.className = "todo-item-checkbox";
+  checkbox.id = `task-${task.id}`;
+  checkbox.addEventListener("change", () => {
+    task.toggleCompleted();
+    renderTodoList(todoList);
+  });
+
+  if (task?.completed) {
+    checkbox.checked = true;
+  }
+
+  // Create the span element
+  let span = document.createElement("span");
+  span.textContent = task.taskText;
+
+  // Create the button element
+  let button = document.createElement("button");
+  button.className = "todo-item-button";
+  button.addEventListener("click", () => {
+    todoList.removeTask(task.id);
+    renderTodoList(todoList);
+  });
+
+  // Create the img element
+  let img = document.createElement("img");
+  img.src = "./images/icon-cross.svg";
+  img.alt = "Delete icon for todo task.";
+  img.className = "close-icon";
+
+  // Append the checkbox and span to the label
+  label.appendChild(checkbox);
+  label.appendChild(span);
+
+  // Append the img to the button
+  button.appendChild(img);
+
+  // Append the label and button to the li
+  li.appendChild(label);
+  li.appendChild(button);
+
+  return li;
+}
+
+function createEmptyTaskListItemElement() {
+  // Create the li element
+  let li = document.createElement("li");
+  li.className = "row todo-item";
+
+  // Create the label element
+  let label = document.createElement("label");
+  label.className = "row padding-0 center";
+
+  // Create the span element
+  let span = document.createElement("span");
+  span.className = "center empty-item"
+  span.textContent = "Add tasks to do...";
+
+  // Append the span to the label
+  label.appendChild(span);
+  li.appendChild(label);
+
+  return li;
+}
+
 function renderTodoList(todoList) {
   const todoListElement = document.getElementById("todo-list");
   todoListElement.innerHTML = "";
   const tasks = todoList.getTasks();
   if (tasks.length === 0) {
-    // Create the li element
-    let li = document.createElement("li");
-    li.className = "row todo-item";
-
-    // Create the label element
-    let label = document.createElement("label");
-    label.className = "row padding-0 center";
-
-    // Create the span element
-    let span = document.createElement("span");
-    span.className = "center empty-item"
-    span.textContent = "Add tasks to do...";
-
-    // Append the span to the label
-    label.appendChild(span);
-
-    li.appendChild(label);
+    let li = createEmptyTaskListItemElement();
     todoListElement.appendChild(li);
   } else {
     tasks.forEach(task => {
-      // Create the li element
-      let li = document.createElement("li");
-      li.className = "row todo-item";
-  
-      // Create the label element
-      let label = document.createElement("label");
-      label.className = "row padding-0";
-  
-      // Create the checkbox input element
-      let checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.className = "todo-item-checkbox";
-      checkbox.id = `task-${task.id}`;
-      checkbox.addEventListener("change", () => {
-        task.toggleCompleted();
-        renderTodoList(todoList);
-      });
-      
-      if (task?.completed) {
-        checkbox.checked = true;
-      }
-  
-      // Create the span element
-      let span = document.createElement("span");
-      span.textContent = task.taskText;
-  
-      // Create the button element
-      let button = document.createElement("button");
-      button.className = "todo-item-button";
-      button.addEventListener("click", () => {
-        todoList.removeTask(task.id);
-        renderTodoList(todoList);
-      });
-  
-      // Create the img element
-      let img = document.createElement("img");
-      img.src = "./images/icon-cross.svg";
-      img.alt = "Delete icon for todo task.";
-      img.className = "close-icon";
-  
-      // Append the checkbox and span to the label
-      label.appendChild(checkbox);
-      label.appendChild(span);
-  
-      // Append the img to the button
-      button.appendChild(img);
-  
-      // Append the label and button to the li
-      li.appendChild(label);
-      li.appendChild(button);
+      let li = createTaskListItemElement(task, todoList);
       todoListElement.appendChild(li);
     });
   }
@@ -212,4 +231,5 @@ window.addEventListener('load', () => {
   seedTodoList(todoList);
   document.getElementById("theme-switcher").addEventListener("click", () => toggleTheme());
   document.getElementById("todo-create-form").addEventListener("submit", (e) => handleTodoCreateForm(e, todoList));
+  document.getElementById("clear-all-tasks-button").addEventListener("click", () => handleClearAllTasks(todoList));
 });
