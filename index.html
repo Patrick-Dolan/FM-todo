@@ -11,21 +11,21 @@
   <title>Frontend Mentor | Todo app</title>
 </head>
 <body class="container">
+  <!-- Main title section -->
   <div class="row main-title">
     <h2>Todo</h2>
     <button id="theme-switcher">
       <img id="theme-switcher-icon" src="./images/icon-moon.svg" alt="Moon icon button to switch to dark mode.">
     </button>
   </div>
-
-  <!-- TODO replace todo-item class here with something specific to create form -->
+  <!-- Create form -->
   <div>
     <form class="todo-create-form row">
-      <input type="checkbox" class="todo-item-checkbox">
+      <input type="checkbox" class="todo-item-checkbox" disabled>
       <input class="todo-create-form--text-input" type="text" placeholder="Create a new todo...">
     </form>
   </div>
-
+  <!-- Todo task list -->
   <div class="visual-container">
     <ul class="todo-list">
       <li class="row todo-item">
@@ -33,55 +33,74 @@
           <input type="checkbox" class="todo-item-checkbox" id="todo1">
           <span>Complete online JavaScript course</span>
         </label>
-        <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        <button class="todo-item-button">
+          <img src="./images/icon-cross.svg" alt="Delete icon for todo task." class="close-icon">
+        </button>
       </li>
       <li class="row todo-item">
         <label class="row padding-0">
           <input type="checkbox" class="todo-item-checkbox" id="todo2">
           <span>Jog around the park 3x</span>
         </label>
-        <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        <button class="todo-item-button">
+          <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        </button>
       </li>
       <li class="row todo-item">
         <label class="row padding-0">
           <input type="checkbox" class="todo-item-checkbox" id="todo3">
           <span>10 minutes meditation</span>
         </label>
-        <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        <button class="todo-item-button">
+          <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        </button>
       </li>
       <li class="row todo-item">
         <label class="row padding-0">
           <input type="checkbox" class="todo-item-checkbox" id="todo4">
           <span>Read for 1 hour</span>
         </label>
-        <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        <button class="todo-item-button">
+          <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        </button>
       </li>
       <li class="row todo-item">
         <label class="row padding-0">
           <input type="checkbox" class="todo-item-checkbox" id="todo5">
           <span>Pick up groceries</span>
         </label>
-        <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        <button class="todo-item-button">
+          <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        </button>
       </li>
       <li class="row todo-item">
         <label class="row padding-0">
           <input type="checkbox" class="todo-item-checkbox" id="todo6">
           <span>Complete Todo app on frontend mentor</span>
         </label>
-        <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        <button class="todo-item-button">
+          <img src="./images/icon-cross.svg" alt="" class="close-icon">
+        </button>
       </li>
     </ul>
+    <!-- Task list bottom controls -->
     <div class="row">
       <p class="text-subtle"><!-- TODO Add dynamic number -->0 items left</p>
-      <p class="text-subtle">Clear Completed</p>
+      <button class="text-subtle todo-item-clear-button">Clear Completed</button>
     </div>
   </div>
 
   <div class="visual-container">
     <ul class="item-filter-list">
-      <li class=" item-filter-list-item item-filter-active">All</li>
-      <li class="item-filter-list-item">Active</li>
-      <li class="item-filter-list-item">Completed</li>
+      <li>
+        <button class="item-filter-list-item-button item-filter-active">All</button>
+      </li>
+      <li>
+        <button class="item-filter-list-item-button">Active</button>
+      </li>
+      <l>
+        <button class="item-filter-list-item-button">Completed</button>
+      </l>
     </ul>
   </div>
 

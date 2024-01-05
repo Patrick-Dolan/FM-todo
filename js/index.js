@@ -1,3 +1,5 @@
+// Business Logic
+
 // UI logic
 function setDarkTheme() {
   document.getElementById("theme-switcher-icon").src = "../images/icon-sun.svg";
@@ -12,8 +14,9 @@ function setDarkTheme() {
 
   // List colors
   document.documentElement.style.setProperty('--surface-background-color', 'hsl(235, 24%, 19%)');
-  document.documentElement.style.setProperty('--list-item-text', 'hsl(0, 0%, 98%)');
+  document.documentElement.style.setProperty('--list-item-text', 'hsl(234, 39%, 85%)');
   document.documentElement.style.setProperty('--text-secondary', 'hsl(233, 14%, 35%)');
+  document.documentElement.style.setProperty('--list-item-checkbox', 'hsl(237, 14%, 26%)');
 }
 
 function setLightTheme() {
@@ -31,7 +34,7 @@ function setLightTheme() {
   document.documentElement.style.setProperty('--surface-background-color', 'hsl(0, 0%, 98%)');
   document.documentElement.style.setProperty('--list-item-text', 'hsl(235, 19%, 35%)');
   document.documentElement.style.setProperty('--text-secondary', 'hsl(236, 9%, 61%)');
-
+  document.documentElement.style.setProperty('--list-item-checkbox', 'hsl(236, 33%, 92%)');
 }
 
 function toggleTheme() {
