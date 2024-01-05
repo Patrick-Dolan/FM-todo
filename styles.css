@@ -274,7 +274,7 @@ input[type="checkbox"] {
   font-weight: 700;
 }
 
-.item-filter-list-item-button {
+.item-filter-list-button {
   border: none;
   background-color: transparent;
   color: var(--text-secondary);
@@ -283,7 +283,7 @@ input[type="checkbox"] {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-.item-filter-list-item-button:hover {
+.item-filter-list-button:hover {
   cursor: pointer;
   color: var(--list-item-text);
 }

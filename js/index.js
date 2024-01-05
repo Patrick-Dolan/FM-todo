@@ -198,7 +198,7 @@ function createEmptyTaskListItemElement() {
   // Create the span element
   let span = document.createElement("span");
   span.className = "center empty-item"
-  span.textContent = "Add tasks to do...";
+  span.textContent = "No tasks here...";
 
   // Append the span to the label
   label.appendChild(span);
@@ -210,7 +210,18 @@ function createEmptyTaskListItemElement() {
 function renderTodoList(todoList) {
   const todoListElement = document.getElementById("todo-list");
   todoListElement.innerHTML = "";
-  const tasks = todoList.getTasks();
+
+  // Get filter value
+  const activeFilterButton = document.querySelector(".item-filter-list-button.item-filter-active");
+  const activeFilter = activeFilterButton ? activeFilterButton.textContent.toLowerCase().trim() : "";
+
+  let tasks = todoList.getTasks();
+  if (activeFilter === "active") {
+    tasks = tasks.filter(task => !task.completed);
+  } else if (activeFilter === "completed") {
+    tasks = tasks.filter(task => task.completed);
+  }
+
   if (tasks.length === 0) {
     let li = createEmptyTaskListItemElement();
     todoListElement.appendChild(li);
@@ -229,7 +240,27 @@ window.addEventListener('load', () => {
   initializeTheme();
   const todoList = new TodoList();
   seedTodoList(todoList);
+
+  // Theme related event listeners
   document.getElementById("theme-switcher").addEventListener("click", () => toggleTheme());
+
+  // Task related event listeners
   document.getElementById("todo-create-form").addEventListener("submit", (e) => handleTodoCreateForm(e, todoList));
   document.getElementById("clear-all-tasks-button").addEventListener("click", () => handleClearAllTasks(todoList));
+
+  // - Add click event listener for each filter button
+  const buttonsArr = Array.from(document.getElementsByClassName("item-filter-list-button"));
+  console.log(buttonsArr)
+  buttonsArr.forEach(button => {
+    button.addEventListener("click", function() {
+      // Remove active class from all buttons
+      buttonsArr.forEach(btn => {
+        btn.classList.remove("item-filter-active");
+      });
+
+      // Add active class to clicked button
+      this.classList.add("item-filter-active");
+      renderTodoList(todoList);
+    });
+  });
 });
