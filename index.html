@@ -20,76 +20,28 @@
   </div>
   <!-- Create form -->
   <div>
-    <form class="todo-create-form row">
+    <form id="todo-create-form" class="row">
       <input type="checkbox" class="todo-item-checkbox" disabled>
-      <input class="todo-create-form--text-input" type="text" placeholder="Create a new todo...">
+      <input id="task-string" class="todo-create-form--text-input" type="text" placeholder="Create a new todo...">
+      <input type="submit" style="display: none;">
     </form>
   </div>
   <!-- Todo task list -->
   <div class="visual-container">
-    <ul class="todo-list">
+    <ul id="todo-list">
       <li class="row todo-item">
-        <label class="row padding-0">
-          <input type="checkbox" class="todo-item-checkbox" id="todo1">
-          <span>Complete online JavaScript course</span>
+        <label class="row padding-0 center">
+          <span>Add tasks to do...</span>
         </label>
-        <button class="todo-item-button">
-          <img src="./images/icon-cross.svg" alt="Delete icon for todo task." class="close-icon">
-        </button>
-      </li>
-      <li class="row todo-item">
-        <label class="row padding-0">
-          <input type="checkbox" class="todo-item-checkbox" id="todo2">
-          <span>Jog around the park 3x</span>
-        </label>
-        <button class="todo-item-button">
-          <img src="./images/icon-cross.svg" alt="" class="close-icon">
-        </button>
-      </li>
-      <li class="row todo-item">
-        <label class="row padding-0">
-          <input type="checkbox" class="todo-item-checkbox" id="todo3">
-          <span>10 minutes meditation</span>
-        </label>
-        <button class="todo-item-button">
-          <img src="./images/icon-cross.svg" alt="" class="close-icon">
-        </button>
-      </li>
-      <li class="row todo-item">
-        <label class="row padding-0">
-          <input type="checkbox" class="todo-item-checkbox" id="todo4">
-          <span>Read for 1 hour</span>
-        </label>
-        <button class="todo-item-button">
-          <img src="./images/icon-cross.svg" alt="" class="close-icon">
-        </button>
-      </li>
-      <li class="row todo-item">
-        <label class="row padding-0">
-          <input type="checkbox" class="todo-item-checkbox" id="todo5">
-          <span>Pick up groceries</span>
-        </label>
-        <button class="todo-item-button">
-          <img src="./images/icon-cross.svg" alt="" class="close-icon">
-        </button>
-      </li>
-      <li class="row todo-item">
-        <label class="row padding-0">
-          <input type="checkbox" class="todo-item-checkbox" id="todo6">
-          <span>Complete Todo app on frontend mentor</span>
-        </label>
-        <button class="todo-item-button">
-          <img src="./images/icon-cross.svg" alt="" class="close-icon">
-        </button>
       </li>
     </ul>
     <!-- Task list bottom controls -->
     <div class="row">
-      <p class="text-subtle"><!-- TODO Add dynamic number -->0 items left</p>
+      <p class="text-subtle"><span id="task-count">0</span> items left</p>
       <button class="text-subtle todo-item-clear-button">Clear Completed</button>
     </div>
   </div>
-
+  <!-- Mobile filter list -->
   <div class="visual-container">
     <ul class="item-filter-list">
       <li>
@@ -103,9 +55,9 @@
       </l>
     </ul>
   </div>
-
+  <!-- Drag and drop instructions -->
   <p class="drag-drop-instruction">Drag and drop to reorder list</p>
-
+  <!-- Footer Attributions -->
   <footer>
     <p class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
