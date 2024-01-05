@@ -16,7 +16,7 @@ class TodoList {
   }
 
   getRemainingTaskCount() {
-    return this.tasks.length;
+    return this.tasks.filter(todo => !todo.completed).length;
   }
 
   getTasks() {
@@ -61,6 +61,7 @@ function handleTodoCreateForm(e, todoList) {
 }
 
 // UI logic
+
 function setDarkTheme() {
   document.getElementById("theme-switcher-icon").src = "../images/icon-sun.svg";
 
@@ -160,7 +161,11 @@ function renderTodoList(todoList) {
       checkbox.type = "checkbox";
       checkbox.className = "todo-item-checkbox";
       checkbox.id = `task-${task.id}`;
-  
+      checkbox.addEventListener("change", () => {
+        task.toggleCompleted();
+        renderTodoList(todoList);
+      });
+      
       if (task?.completed) {
         checkbox.checked = true;
       }
@@ -200,6 +205,7 @@ function renderTodoList(todoList) {
 }
 
 // Add event listeners on page load
+
 window.addEventListener('load', () => {
   initializeTheme();
   const todoList = new TodoList();
