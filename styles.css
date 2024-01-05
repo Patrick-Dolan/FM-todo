@@ -71,7 +71,7 @@ input {
   margin-bottom: 1em;
   background-color: var(--surface-background-color);
   box-shadow: 0 0 4rem var(--shadow-color);
-  border-radius: .5rem;
+  border-radius: .25rem;
 }
 
 .row {
@@ -128,7 +128,7 @@ input {
 
 /* Todo create form */
 
-.todo-create-form {
+#todo-create-form {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,6 +136,11 @@ input {
   padding: .5em .7em;
   border-radius: .25rem;
   margin-bottom: 1em;
+}
+
+#todo-create-form input::placeholder {
+  font-size: .85rem;
+  color: var(--text-secondary);
 }
 
 .todo-create-form--text-input {
@@ -160,22 +165,16 @@ input {
   outline: none;
 }
 
-.todo-create-form input::placeholder {
-  font-size: .85rem;
-  color: var(--text-secondary);
-}
-
 input[type="checkbox"] {
   border-radius: 50%;
 }
 
 /* Todo Items */
 
-.todo-list {
+#todo-list {
   padding: 0;
   list-style: none;
   margin: 0;
-  /* background-color: var(--surface-background-color); */
 }
 
 .todo-item {
@@ -253,6 +252,10 @@ input[type="checkbox"] {
 .todo-item-clear-button:hover {
   cursor: pointer;
   color: var(--list-item-text);
+}
+
+.empty-item {
+  padding: .5em 0;
 }
 
 /* Item Filter List */
