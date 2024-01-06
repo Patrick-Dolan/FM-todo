@@ -245,7 +245,6 @@ input[type="checkbox"] {
   font-size: .75rem;
   font-weight: 700;
   padding: .5rem;
-  margin-left: auto;
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -259,6 +258,24 @@ input[type="checkbox"] {
 }
 
 /* Item Filter List */
+
+#mobile-item-filter-list {
+  display: block;
+}
+
+#desktop-item-filter-list {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
+  #mobile-item-filter-list {
+    display: none;
+  }
+
+  #desktop-item-filter-list {
+    display: block;
+  }
+}
 
 .item-filter-list {
   padding: 0;

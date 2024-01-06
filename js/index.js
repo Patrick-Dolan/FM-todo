@@ -252,13 +252,14 @@ window.addEventListener('load', () => {
   const buttonsArr = Array.from(document.getElementsByClassName("item-filter-list-button"));
   buttonsArr.forEach(button => {
     button.addEventListener("click", function() {
-      // Remove active class from all buttons
+      // Remove active class from all buttons with the same name
       buttonsArr.forEach(btn => {
-        btn.classList.remove("item-filter-active");
+        if (btn.textContent === this.textContent) {
+          btn.classList.add("item-filter-active");
+        } else {
+          btn.classList.remove("item-filter-active");
+        }
       });
-
-      // Add active class to clicked button
-      this.classList.add("item-filter-active");
       renderTodoList(todoList);
     });
   });

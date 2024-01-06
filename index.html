@@ -38,11 +38,25 @@
     <!-- Task list bottom controls -->
     <div class="row">
       <p class="text-subtle"><span id="task-count">0</span> items left</p>
+      <!-- Desktop filter list -->
+      <div id="desktop-item-filter-list">
+        <ul class="item-filter-list">
+          <li>
+            <button class="item-filter-list-button item-filter-active">All</button>
+          </li>
+          <li>
+            <button class="item-filter-list-button">Active</button>
+          </li>
+          <li>
+            <button class="item-filter-list-button">Completed</button>
+          </li>
+        </ul>
+      </div>
       <button id="clear-all-tasks-button" class="text-subtle todo-item-clear-button">Clear Completed</button>
     </div>
   </div>
   <!-- Mobile filter list -->
-  <div class="visual-container">
+  <div id="mobile-item-filter-list" class="visual-container">
     <ul class="item-filter-list">
       <li>
         <button class="item-filter-list-button item-filter-active">All</button>
