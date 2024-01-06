@@ -250,7 +250,6 @@ window.addEventListener('load', () => {
 
   // - Add click event listener for each filter button
   const buttonsArr = Array.from(document.getElementsByClassName("item-filter-list-button"));
-  console.log(buttonsArr)
   buttonsArr.forEach(button => {
     button.addEventListener("click", function() {
       // Remove active class from all buttons
