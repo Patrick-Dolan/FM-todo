@@ -82,7 +82,7 @@ function handleClearAllTasks(todoList) {
 // UI logic
 
 function setDarkTheme() {
-  document.getElementById("theme-switcher-icon").src = "../images/icon-sun.svg";
+  document.getElementById("theme-switcher-icon").src = "images/icon-sun.svg";
 
   // Set background
   document.documentElement.style.setProperty("--background-image", "url(images/bg-mobile-dark.jpg)");
@@ -100,7 +100,7 @@ function setDarkTheme() {
 }
 
 function setLightTheme() {
-  document.getElementById("theme-switcher-icon").src = "../images/icon-moon.svg";
+  document.getElementById("theme-switcher-icon").src = "images/icon-moon.svg";
 
   // Set background
   document.documentElement.style.setProperty("--background-image", "url(images/bg-mobile-light.jpg)");
