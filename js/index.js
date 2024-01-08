@@ -26,6 +26,17 @@ class TodoList {
   getTasks() {
     return this.tasks;
   }
+
+  reorderTasks(draggedTaskId, currentTaskId) {
+    let draggedTaskIndex = this.tasks.findIndex(task => task.id == draggedTaskId);
+    let currentTaskIndex = this.tasks.findIndex(task => task.id == currentTaskId);
+
+    let draggedTask = this.tasks[draggedTaskIndex];
+    let currentTask = this.tasks[currentTaskIndex];
+
+    this.tasks[draggedTaskIndex] = currentTask;
+    this.tasks[currentTaskIndex] = draggedTask;
+  }
 }
 
 class Task {
@@ -135,6 +146,24 @@ function createTaskListItemElement(task, todoList) {
   // Create the li element
   let li = document.createElement("li");
   li.className = "row todo-item";
+
+  // Add drag and drop functionality to li
+  li.draggable = true;
+
+  li.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("text/plain", task.id);
+  });
+
+  li.addEventListener("dragover", (event) => {
+    event.preventDefault();
+  });
+
+  li.addEventListener("drop", (event) => {
+    event.preventDefault();
+    const draggedTaskId = event.dataTransfer.getData("text/plain");
+    todoList.reorderTasks(draggedTaskId, task.id);
+    renderTodoList(todoList);
+  });
 
   // Create the label element
   let label = document.createElement("label");
