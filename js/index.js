@@ -85,7 +85,7 @@ function setDarkTheme() {
   document.getElementById("theme-switcher-icon").src = "../images/icon-sun.svg";
 
   // Set background
-  document.documentElement.style.setProperty("--background-image", "url(./images/bg-mobile-dark.jpg)");
+  document.documentElement.style.setProperty("--background-image", "url(images/bg-mobile-dark.jpg)");
   document.documentElement.style.setProperty("--background-image-desktop", "url(./images/bg-desktop-dark.jpg)");
   document.documentElement.style.setProperty("--background-color", "hsl(235, 21%, 11%)");
 
@@ -103,7 +103,7 @@ function setLightTheme() {
   document.getElementById("theme-switcher-icon").src = "../images/icon-moon.svg";
 
   // Set background
-  document.documentElement.style.setProperty("--background-image", "url(./images/bg-mobile-light.jpg)");
+  document.documentElement.style.setProperty("--background-image", "url(images/bg-mobile-light.jpg)");
   document.documentElement.style.setProperty("--background-image-desktop", "url(./images/bg-desktop-light.jpg)");
   document.documentElement.style.setProperty("--background-color", "hsl(0, 0%, 98%)");
   
