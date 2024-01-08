@@ -45,7 +45,7 @@ body {
   background-color: var(--background-color);
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 376px) {
   body {
     background-image: var(--background-image-desktop);
   }
@@ -68,7 +68,7 @@ h2 {
   margin: 1rem 0;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 376px) {
   h2 {
     margin-top: 2em;
     margin-bottom: 1.5em;
